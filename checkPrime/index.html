@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="inputNum" placeholder="Input your number">
+<button type="button" onclick="displayResult()">CHECK IF IT IS A PRIME OPTIMUS</button>
+<div id="result"></div>
+<script>
+    function checkPrime(num) {
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0)
+                return false;
+        }
+        return true;
+    }
+    function displayResult() {
+        let n= +document.getElementById('inputNum').value;
+        if (checkPrime(n))
+            document.getElementById('result').innerHTML=n+" is a Prime!";
+        else document.getElementById('result').innerHTML=n+" is NOT a Prime!";
+    }
+</script>
+</body>
+</html>
