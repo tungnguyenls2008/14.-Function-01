@@ -3,144 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/scripts.js"></script>
 </head>
 <body>
-<input type="text" id="numInput" placeholder="Enter your number">
-<button type="button" onclick="calSquare(getValue(inputTxt))">SQUARE IT UP!</button>
-<button type="button" onclick="calFactorial(getValue(inputTxt))">FIND THE FACTORIAL!</button>
-<button type="button" onclick="displayResult(getValue(inputTxt))">CHECK IT!</button>
-<button type="button" onclick="checkIfBiggerThanZero(getValue(inputTxt))">CHECK IT AGAIN!</button>
-<div id="display1"></div>
-<div id="display3"></div>
-<div id="display4"></div>
-<div id="display6"></div>
-<input type="number" id="circleRadius" placeholder="Enter your circle's Radius in cm">
-<button type="button" onclick="calCircleSurfaceAndDiameter(getValue(circleInput))">CALCULATE
-    SURFACE AND DIAMETER
-</button>
-<div id="display2"></div>
-<input type="number" id="first" placeholder="your first number">
-<input type="number" id="second" placeholder="your second number">
-<input type="number" id="third" placeholder="your third number">
-<button type="button" onclick="check3Numbers(getValue('first'),getValue('second'),getValue('third'))">CHECK THEM!
-</button>
-<div id="display5"></div>
-<input type="number" id="swap1" placeholder="your first number">
-<input type="number" id="swap2" placeholder="your second number">
-<button type="button" onclick="swap2Numbers(getValue('swap1'),getValue('swap2'))">SWAP THEM!</button>
-<div id="display7"></div>
-<input type="text" id="arrayString" placeholder="Enter your array values, separated by space." width="40px">
-<button type="button" onclick="reverseArrayIndex(document.getElementById('arrayString').value)">SWAP ITS INDEX!</button>
-<div id="display8"></div>
-<input type="number" id="randomStringLength" placeholder="Enter the length of the random string">
-<button type="button" onclick="generateRandomString(getValue('randomStringLength'))">GENERATE RANDOM STRING</button><br>
-<textarea disabled id="display9"></textarea>
-<textarea id="specifiedChar" placeholder="Enter your character here"></textarea>
-<button type="button" onclick="findCharInArray(document.getElementById('display9').innerHTML,document.getElementById('specifiedChar').value)">FIND THE CHARACTER</button>
-<div id="display10"></div>
-<script>
- // Side variables that help clean the codes
-    let circleInput = 'circleRadius';
-    let inputTxt = 'numInput';
-    let calSquareTxt = 'Its square is: ';
-    const PI = 3.1415;
-    let numInput = document.getElementById('numInput');
-
-// Side functions that help clean the codes
-    function specialText(txt) {
-        /*return "<strong>"+txt+"</strong>";*/
-        return `<strong>${txt}</strong>`;
-    }
-    function getValue(id) {
-        return +document.getElementById(id).value;
-    }
-    function specialUnit(unit, value) {
-        return (unit + '&sup' + value + ';');
-    }
-    function displayResult() {
-        let valueInput = document.getElementById('numInput').value;
-        if (checkNumber(valueInput)) {
-            display(4).innerHTML = "This is a number!";
-        } else display(4).innerHTML = "This is NOT a number!";
-    }
-    function calSquare(a) {
-        let result = a * a;
-        display(1).innerHTML = calSquareTxt + specialText(result);
-    }
-    function display(index) {
-        return document.getElementById('display' + index);
-    }
-
-//main functions
-    function calCircleSurfaceAndDiameter(r) {
-        let result1 = r * r * PI;
-        let result2 = 2 * r * PI;
-        let txt = "This circle's Surface is " + specialText(result1) + specialUnit('cm', 2);
-        txt += " and its diameter is " + specialText(result2) + "cm";
-        display(2).innerHTML = txt;
-    }
-    function calFactorial(n) {
-        let s = 1;
-        for (let i = 1; i <= n; i++) {
-            s *= i;
-        }
-        display(3).innerHTML = "Its Factorial is " + specialText(s);
-    }
-    function checkNumber(a) {
-        return !isNaN(a);
-    }
-    function check3Numbers(a, b, c) {
-        let min;
-        if (b < a) {
-            min = b;
-            if (c < b) {
-                min = c;
-            }
-        } else if (c < a) {
-            min = c;
-        } else min = a;
-        console.log(min);
-        display(5).innerHTML = "The smallest number among them is: " + specialText(min);
-    }
-    function checkIfBiggerThanZero(a) {
-        if (a > 0 && a % 1 === 0)
-            display(6).innerHTML = "This number is an Integer bigger than Zero!";
-        else display(6).innerHTML = "This number is NOT an Integer bigger than zero!";
-    }
-    function swap2Numbers(a, b) {
-        let temp = a;
-        a = b;
-        b = temp;
-        display(7).innerHTML = "Here are they, all swapped good: " + specialText(a) + " and " + specialText(b);
-    }
-    function reverseArrayIndex(strInput) {
-        let array;
-        console.log(strInput);
-        array= strInput.split(" ");
-        console.log(array);
-        array.reverse();
-        display(8).innerHTML = array.toString();
-    }
-    function findCharInArray(str, char) {
-        let arr;
-        arr=str.split("");
-        let count=0;
-        console.log(arr);
-        console.log(char);
-        for (let i = 0; i <arr.length ; i++) {
-            if(arr[i]===char){
-                count++;
-            }
-        }display(10).innerHTML="The character "+specialText(char)+" appeared "+specialText(count)+" times inside the randomly generated array."
-    }
-    function generateRandomString(length) {
-        let text = "";
-        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        for (let i = 0; i < length; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        display(9).innerHTML=text;
-    }
-</script>
+<fieldset>
+    <legend style="text-align: center"><h1>CREATE AND USE FUNCTIONS 02</h1></legend>
+    <fieldset><legend>EXERCISE 01, 02, 03, 04</legend>
+        <input type="text" id="numInput" placeholder="Enter your number">
+        <button type="button" onclick="calSquare(getValue(inputTxt))">SQUARE IT UP!</button>
+        <button type="button" onclick="calFactorial(getValue(inputTxt))">FIND THE FACTORIAL!</button>
+        <button type="button" onclick="displayResult(getValue(inputTxt))">CHECK IT!</button>
+        <button type="button" onclick="checkIfBiggerThanZero(getValue(inputTxt))">CHECK IT AGAIN!</button>
+        <div id="display1"></div>
+        <div id="display3"></div>
+        <div id="display4"></div>
+        <div id="display6"></div>
+    </fieldset>
+    <fieldset><legend>EXERCISE 05</legend>
+        <input type="number" id="circleRadius" placeholder="Enter your circle's Radius in cm">
+        <button type="button" onclick="calCircleSurfaceAndDiameter(getValue(circleInput))">CALCULATE
+            SURFACE AND DIAMETER
+        </button>
+        <div id="display2"></div>
+    </fieldset>
+    <fieldset><legend>EXERCISE 06</legend>
+        <input type="number" id="first" placeholder="your first number">
+        <input type="number" id="second" placeholder="your second number">
+        <input type="number" id="third" placeholder="your third number">
+        <button type="button" onclick="check3Numbers(getValue('first'),getValue('second'),getValue('third'))">CHECK
+            THEM!
+        </button>
+        <div id="display5"></div>
+    </fieldset>
+    <fieldset><legend>EXERCISE 07</legend>
+        <input type="number" id="swap1" placeholder="your first number">
+        <input type="number" id="swap2" placeholder="your second number">
+        <button type="button" onclick="swap2Numbers(getValue('swap1'),getValue('swap2'))">SWAP THEM!</button>
+        <div id="display7"></div>
+    </fieldset>
+    <fieldset><legend>EXERCISE 08</legend>
+        <input type="text" id="arrayString" placeholder="Enter your array values, separated by spaces." size="40">
+        <button type="button" onclick="reverseArrayIndex(document.getElementById('arrayString').value)">SWAP ITS
+            INDEX!
+        </button>
+        <div id="display8"></div>
+    </fieldset>
+    <fieldset><legend>EXERCISE 09</legend>
+        <input type="number" id="randomStringLength" placeholder="Enter the length of the random string">
+        <button type="button" onclick="generateRandomString(getValue('randomStringLength'))">GENERATE RANDOM STRING
+        </button>
+        <br><br>
+        <textarea disabled id="display9"></textarea>
+        <textarea id="specifiedChar" placeholder="Enter your character here"></textarea>
+        <button type="button"
+                onclick="findCharInArray(document.getElementById('display9').innerHTML,document.getElementById('specifiedChar').value)">
+            FIND THE CHARACTER
+        </button>
+        <div id="display10"></div>
+    </fieldset>
+</fieldset>
 </body>
 </html>
