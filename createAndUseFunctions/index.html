@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="numInput">
+<button type="button" onclick="increment(document.getElementById('numInput').value)">INCREASE IT BY 1</button>
+<div id="display1"></div>
+<input type="number" id="first" placeholder="Your first number here">
+<input type="number" id="second" placeholder="Your second number here">
+<button type="button" onclick="compareTwoNumbers(document.getElementById('first').value,document.getElementById('second').value)">COMPARE THEM</button>
+<div id="display2"></div>
+<input type="text" id="stars" placeholder="">
+<button type="button" onclick="sortingStars(document.getElementById('stars').value)">SORT YOUR STAR</button>
+<div id="display3"></div>
+<script>
+    function alertMessage() {
+        alert('Xin chao')
+    }
+    alertMessage();
+    function increment(n) {
+        n++;
+        document.getElementById('display1').innerHTML="The result: "+n;
+        return n;
+    }
+    function compareTwoNumbers(a,b) {
+        if (a>b)
+            document.getElementById('display2').innerHTML=a+ " is bigger than "+b;
+        else
+            document.getElementById('display2').innerHTML="Their sum is: "+ (parseInt(a)+parseInt(b));
+    }
+    function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+        return result;
+    }
+    result = 0;
+    alert('before function call, the result is: '+result);
+    result = addNumbers();
+    alert('after function call, the result is: '+result);
+    let array1=['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe ','Regulus',];
+    let array2=[' Ursa Minor','Tarurus','Cygnus','Lyra','Aquila',' Ursa Major','Leo',];
+    function sortingStars(a='') {
+        for (let i = 0; i <array1.length ; i++) {
+            if(a===array1[i]){
+                document.getElementById('display3').innerHTML='Your star belong to the '+"<strong>"+array2[i]+"</strong>"; break;
+            }else document.getElementById('display3').innerHTML="In another universe, maybe.";
+        }
+    }
+</script>
+</body>
+</html>
