@@ -39,30 +39,39 @@
 <button type="button" onclick="findCharInArray(document.getElementById('display9').innerHTML,document.getElementById('specifiedChar').value)">FIND THE CHARACTER</button>
 <div id="display10"></div>
 <script>
+ // Side variables that help clean the codes
     let circleInput = 'circleRadius';
     let inputTxt = 'numInput';
     let calSquareTxt = 'Its square is: ';
     const PI = 3.1415;
     let numInput = document.getElementById('numInput');
 
+// Side functions that help clean the codes
     function specialText(txt) {
         /*return "<strong>"+txt+"</strong>";*/
         return `<strong>${txt}</strong>`;
     }
-
     function getValue(id) {
         return +document.getElementById(id).value;
     }
-
+    function specialUnit(unit, value) {
+        return (unit + '&sup' + value + ';');
+    }
+    function displayResult() {
+        let valueInput = document.getElementById('numInput').value;
+        if (checkNumber(valueInput)) {
+            display(4).innerHTML = "This is a number!";
+        } else display(4).innerHTML = "This is NOT a number!";
+    }
     function calSquare(a) {
         let result = a * a;
         display(1).innerHTML = calSquareTxt + specialText(result);
     }
-
-    function specialUnit(unit, value) {
-        return (unit + '&sup' + value + ';');
+    function display(index) {
+        return document.getElementById('display' + index);
     }
 
+//main functions
     function calCircleSurfaceAndDiameter(r) {
         let result1 = r * r * PI;
         let result2 = 2 * r * PI;
@@ -70,7 +79,6 @@
         txt += " and its diameter is " + specialText(result2) + "cm";
         display(2).innerHTML = txt;
     }
-
     function calFactorial(n) {
         let s = 1;
         for (let i = 1; i <= n; i++) {
@@ -78,22 +86,9 @@
         }
         display(3).innerHTML = "Its Factorial is " + specialText(s);
     }
-
     function checkNumber(a) {
         return !isNaN(a);
     }
-
-    function displayResult() {
-        let valueInput = document.getElementById('numInput').value;
-        if (checkNumber(valueInput)) {
-            display(4).innerHTML = "This is a number!";
-        } else display(4).innerHTML = "This is NOT a number!";
-    }
-
-    function display(index) {
-        return document.getElementById('display' + index);
-    }
-
     function check3Numbers(a, b, c) {
         let min;
         if (b < a) {
@@ -107,13 +102,11 @@
         console.log(min);
         display(5).innerHTML = "The smallest number among them is: " + specialText(min);
     }
-
     function checkIfBiggerThanZero(a) {
         if (a > 0 && a % 1 === 0)
             display(6).innerHTML = "This number is an Integer bigger than Zero!";
         else display(6).innerHTML = "This number is NOT an Integer bigger than zero!";
     }
-
     function swap2Numbers(a, b) {
         let temp = a;
         a = b;
